@@ -10,6 +10,8 @@ public class BallMechanic : MonoBehaviour
     public Vector3 minScale = new Vector3();
     private GameObject ballClone;
     public LineRenderer shootLine;
+    public LineRenderer pathLine;
+    public BoxCollider pathLineCollider;
     public float forcePower;
     
     //public float minScaleSize;
@@ -41,8 +43,14 @@ public class BallMechanic : MonoBehaviour
                 transform.localScale-=Vector3.one * scaleTime/40 * Time.deltaTime;
                 ballClone.transform.localScale+=Vector3.one * scaleTime/40 * Time.deltaTime;
 
-                shootLine.startWidth = ballClone.transform.localScale.magnitude/1.5f;
-                shootLine.endWidth = ballClone.transform.localScale.magnitude/1.5f;
+                shootLine.startWidth = ballClone.transform.localScale.magnitude/1.75f;
+                shootLine.endWidth = ballClone.transform.localScale.magnitude/1.75f;
+
+                pathLine.startWidth = transform.localScale.magnitude/1.75f;
+                pathLine.endWidth = transform.localScale.magnitude/1.75f;
+
+                pathLineCollider.size = new Vector3(pathLineCollider.size.x,transform.localScale.magnitude/1.75f,pathLineCollider.size.z);
+                
             }
             
         }

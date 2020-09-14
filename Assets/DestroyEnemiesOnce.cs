@@ -11,7 +11,6 @@ public class DestroyEnemiesOnce : MonoBehaviour
        if(enemy.gameObject.tag =="Enemy")
        {
            Destroy(enemy.gameObject);
-           
            //gameObject.SetActive(false);
        }
    }
