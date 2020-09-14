@@ -5,6 +5,14 @@ using UnityEngine;
 public class VictoryScript : MonoBehaviour
 {
     public PathCheck pathChecker;
+    public GameObject ballHP;
+    public BallMechanic ballMinScale;
+    public LineRenderer shootLine;
+
+    public Animator winLoseAnim;
+    public Animator ballAnim;
+    //public Animator loseAnim;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,13 +26,29 @@ public class VictoryScript : MonoBehaviour
         {
             Win();
         }
+        StartCoroutine("timeOut");
+    }
+    IEnumerator timeOut()
+    {
+        if(pathChecker.enemyList.Count>=1 && ballHP.transform.localScale.x<=0.15f)
+        {
+            if(shootLine.enabled==false)
+            {
+                yield return new WaitForSecondsRealtime(3f);
+                if(pathChecker.enemyList.Count>=1 && ballHP.transform.localScale.x<=0.15f)
+                {
+                    Lose();
+                }
+            }
+        }
     }
     void Win()
     {
-        Debug.Log("Win");
+        winLoseAnim.SetBool("Win",true);
+        ballAnim.SetBool("WinBall",true);
     }
     void Lose()
     {
-
+        winLoseAnim.SetBool("Lost",true);
     }
 }

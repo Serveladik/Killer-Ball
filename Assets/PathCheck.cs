@@ -32,7 +32,7 @@ public class PathCheck : MonoBehaviour
         {
             if(enemyList.Contains(enemy))
             {
-                enemyCol.enabled=false;
+                //enemyCol.enabled=false;
                 enemyList.Remove(enemyCol);
             }
         }

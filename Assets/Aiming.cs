@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class Aiming : MonoBehaviour
 {
-    private Vector3 lastTouchPos;
+    [HideInInspector]
+    public Vector3 lastTouchPos;
+    //public Vector3 aimSpot;
     public LineRenderer shootLine;
     public LayerMask hitMask;
     // Start is called before the first frame update
@@ -20,8 +22,9 @@ public class Aiming : MonoBehaviour
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 		RaycastHit hit;
 
-		if (Physics.Raycast(ray, out hit, 50f, hitMask)) 
+		if (Physics.Raycast(ray, out hit, 60f, hitMask)) 
         {
+            //aimSpot = new Vector3(hit.point.x, hit.point.y, hit.point.z);
 			lastTouchPos = new Vector3(hit.point.x, 0.01f, hit.point.z);
 			shootLine.SetPosition(1, lastTouchPos);
         }

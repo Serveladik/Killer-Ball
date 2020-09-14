@@ -125,5 +125,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 044e550045a24774d8e273e63bd3cc02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lastTouchPos: {x: 0, y: 0, z: 0}
+  hitMask:
+    serializedVersion: 2
+    m_Bits: 512
+  forcePower: 3
+  aiming: {fileID: 0}
   explode: {fileID: 0}
   explodePrefab: {fileID: 0}
+  aimBox: {fileID: 0}

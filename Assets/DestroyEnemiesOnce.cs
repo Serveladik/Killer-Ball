@@ -5,6 +5,7 @@ using UnityEngine;
 public class DestroyEnemiesOnce : MonoBehaviour
 {
     public SphereCollider collider;
+    
     // Start is called before the first frame update
    public void OnTriggerStay(Collider enemy)
    {
