@@ -4,12 +4,11 @@ using UnityEngine;
 
 public class Aiming : MonoBehaviour
 {
-    [HideInInspector]
-    public Vector3 lastTouchPos;
+    [HideInInspector] private Vector3 lastTouchPos;
     //public Vector3 aimSpot;
     public LineRenderer shootLine;
     public LayerMask hitMask;
-    // Start is called before the first frame update
+    
     
 
     // Update is called once per frame

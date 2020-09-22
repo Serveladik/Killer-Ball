@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class PathCheck : MonoBehaviour
 {
-    public List<Collider> enemyList = new List<Collider>();
+    [HideInInspector] public List<Collider> enemyList = new List<Collider>();
     void Update()
     {
-        //For cleaning list
         for(var i = enemyList.Count - 1; i > -1; i--)
         {
             if (enemyList[i] == null)
@@ -32,7 +31,6 @@ public class PathCheck : MonoBehaviour
         {
             if(enemyList.Contains(enemy))
             {
-                //enemyCol.enabled=false;
                 enemyList.Remove(enemyCol);
             }
         }
